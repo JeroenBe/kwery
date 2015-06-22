@@ -1,12 +1,12 @@
 <template name="header">
+	<div class="text-center">
+	<h1>kwery</h1>
+
 	{{#if currentUser}}
-	<div class="text-center">
 		<img src="" alt="profilePic">
-		<h1>someone logged in</h1>
-	</div>
+		<h1>{{name}}</h1>
 	{{else}}
-	<div class="text-center">
 		<button class="btn btn-primary" id="login">Login with Facebook</button>
-	</div>
 	{{/if}}
+	</div>
 </template>
