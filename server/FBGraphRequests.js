@@ -1,4 +1,5 @@
-var sync = Meteor.wrapAsync(FBGraph.get)
+var FBGraphSyncGet = Meteor.wrapAsync(FBGraph.get)
+
 
 Meteor.methods({
 	'getEvents': function(){
@@ -6,7 +7,7 @@ Meteor.methods({
 		var params = {access_token: facebook.accessToken}
 
 		//First page
-		var result = sync((facebook.id + '/events'), params)
+		var result = FBGraphSyncGet((facebook.id + '/events'), params)
 
 		var data = result.data
 		var paging = result.paging
@@ -19,5 +20,20 @@ Meteor.methods({
 		}
 
 		return data
+	},
+	'getEventInfo': function(eventId){
+		var facebook = Meteor.users.findOne(this.userId).services.facebook
+		var params = {access_token: facebook.accessToken, fields: 'cover,name,place'}
+		
+		var result = FBGraphSyncGet(eventId, params)
+		
+		params = {access_token: facebook.accessToken}
+		if(result.id){
+			var attendees = FBGraphSyncGet(eventId + '/attending', params)
+			console.log(attendees)
+			result.attendees = attendees
+		}
+
+		return result
 	}
 })

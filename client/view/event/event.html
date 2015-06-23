@@ -1,0 +1,21 @@
+<template name="event">
+	{{eventInfo}}
+	<div class="text-center">
+		{{#if eventObject}}
+		
+		{{#with eventObject}}
+		{{#if cover.source}}
+		<div style="background-image: url({{cover.source}})" class="event-background"></div>
+		{{/if}}
+		<div class="container">
+			<div class="row">
+				<h3>{{name}}</h3>
+			</div>
+		</div>
+		{{/with}}
+		
+		{{else}}
+		{{> loading}}
+		{{/if}}
+	</div>
+</template>
