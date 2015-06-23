@@ -1,0 +1,15 @@
+<template name="footer">
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">
+				<div class="text-center">
+					{{#if currentUser}}
+					<button class="btn btn-warning" id="logout">logout</button>
+					{{else}}
+					You need to log in with Facebook to use kwery
+					{{/if}}
+				</div>
+			</p>
+		</div>
+	</footer>
+</template>
