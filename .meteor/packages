@@ -13,3 +13,5 @@ accounts-facebook
 stevezhu:fbgraph
 service-configuration
 reactive-var
+http
+manuel:reactivearray
