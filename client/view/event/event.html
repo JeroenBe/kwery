@@ -1,24 +1,27 @@
 <template name="event">
 	{{eventInfo}}
 	<div class="text-center">
-		{{#if eventObject}}
-		
-		{{#with eventObject}}
-		{{#if cover.source}}
-		<div class="divider"></div>
-		<div style="background-image: url({{cover.source}})" class="event-background"></div>
+		{{#if eventObject}}		
+			{{#with eventObject}}
+				{{#if cover.source}}
+					<div class="divider"></div>
+					<div style="background-image: url({{cover.source}})" class="event-background"></div>
+				{{else}}
+					<div class="divider divider-with-border"></div>
+				{{/if}}
+				<div class="container">
+					<div class="row">
+						<h3>{{name}}</h3>
+					</div>
+					<div class="row">
+						<p>{{place.name}} - {{place.location.country}}</p>
+						<p>{{start_time}}</p>
+					</div>
+					<div class="divider divider-with-border small-divider"></div>
+				</div>
+			{{/with}}
 		{{else}}
-		<div class="divider-with-border"></div>
-		{{/if}}
-		<div class="container">
-			<div class="row">
-				<h3>{{name}}</h3>
-			</div>
-		</div>
-		{{/with}}
-		
-		{{else}}
-		{{> loading}}
+			{{> loading}}
 		{{/if}}
 	</div>
 </template>
