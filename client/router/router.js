@@ -8,5 +8,9 @@ Router.route('/', function () {
 })
 
 Router.route('event/:id', function (){
-	this.render('event', {data: {id: this.params.id}})
+	if(Meteor.userId()){
+		this.render('event', {data: {id: this.params.id}})
+	}else{
+		this.render('needToBeLoggedIn')
+	}
 })
