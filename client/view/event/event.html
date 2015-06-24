@@ -11,11 +11,12 @@
 				{{/if}}
 				<div class="container">
 					<div class="row">
-						<h3>{{name}}</h3>
+						<h3><a href="https://facebook.com/{{id}}" target="blank">{{name}}</a></h3>
 					</div>
 					<div class="row">
 						<p>{{place.name}} - {{place.location.country}}</p>
 						<p>{{start_time}}</p>
+						<p><span class="badge">{{attendees.data.length}}</span> people found</p>
 					</div>
 					<div class="divider divider-with-border small-divider"></div>
 				</div>

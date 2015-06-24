@@ -30,15 +30,7 @@ Meteor.methods({
 		params = {access_token: facebook.accessToken}
 		if(result.id){
 			var attendees = FBGraphSyncGet(eventId + '/attending', params)
-			var data = attendees.data
-			var next = attendees.paging.next
-			while(next){
-				var tempRes = HTTP.get(next).data
-				data = data.concat(tempRes.data)
-				next = tempRes.paging.next
-			}
-			result.attendees = data;
-
+			result.attendees = attendees
 		}
 
 		return result
