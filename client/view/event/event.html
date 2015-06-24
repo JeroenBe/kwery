@@ -5,7 +5,10 @@
 		
 		{{#with eventObject}}
 		{{#if cover.source}}
+		<div class="divider"></div>
 		<div style="background-image: url({{cover.source}})" class="event-background"></div>
+		{{else}}
+		<div class="divider-with-border"></div>
 		{{/if}}
 		<div class="container">
 			<div class="row">

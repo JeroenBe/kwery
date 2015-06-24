@@ -1,14 +1,14 @@
 <template name="header">
-	<div class="text-center">
-		<!-- <h1>kwery</h1> -->
-
-		{{#if currentUser}}
-		<div class="row-fluid">
-			<img  class ="img-circle" src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" alt="profilePic">
-			<h3>{{currentUser.services.facebook.name}}</h3>
+	<div class="container-fluid">
+		<div class="text-center">
+			{{#if currentUser}}
+			<div class="row-fluid">
+				<img  class ="img-circle" src="http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture" alt="profilePic">
+				<h3>{{currentUser.services.facebook.name}}</h3>
+			</div>
+			{{else}}
+			<button class="btn btn-primary" id="login">Login with Facebook</button>
+			{{/if}}
 		</div>
-		{{else}}
-		<button class="btn btn-primary" id="login">Login with Facebook</button>
-		{{/if}}
 	</div>
 </template>

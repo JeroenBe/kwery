@@ -9,3 +9,14 @@
 	background-size: cover;
 
 }
+
+.divider-with-border{
+	padding: 1em;
+	border-bottom: 1px dotted #000;
+	margin-bottom: .5em;
+}
+
+.divider{
+	padding: 1em;
+	margin-bottom: .5em;
+}
